@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website for | Dr. Charles Roland Haruna </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        :root {
+            --primary: #1a3a63;
+            --secondary: #4a6fa5;
+            --accent: #c44536;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), #0d2540);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.8rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffc107;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 99, 0.9), rgba(26, 58, 99, 0.8)), url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btn:hover {
+            background-color: #a23529;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn.outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .hero-btn.outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 1rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .research-content {
+            padding: 25px;
+        }
+
+        .research-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .research-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .research-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .research-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .research-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Teaching Section */
+        .teaching-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .teaching-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .teaching-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .teaching-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .teaching-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .teaching-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .course-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .course-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Publications Section */
+        .pub-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pub-year {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .pub-item {
+            background: white;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .pub-journal {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .pub-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Student Section */
+        .student-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .student-info {
+            flex: 1 1 300px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .student-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .student-info ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .student-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .student-info i {
+            margin-right: 10px;
+            color: #ffc107;
+        }
+
+        .student-photos {
+            flex: 1 1 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 30px;
+        }
+
+        .student-photo {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail i {
+            font-size: 1.5rem;
+            color: #ffc107;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #a23529;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-btn {
+                display: block;
+                margin: 15px auto;
+                max-width: 250px;
+            }
+        }
+
+        /* Tables */
+        .tables-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin: 3rem 0;
+        }
+
+        .table-wrapper {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-wrapper h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        /* Layout table (invisible borders) */
+        .layout-table {
+            background-color: var(--light);
+            border: 1px solid #ddd;
+        }
+
+        .layout-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        /* Data table (visible borders) */
+        .data-table {
+            border: 2px solid var(--dark);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            border: 1px solid var(--dark);
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Dr. Haruna
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#research">Courses</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#students">Students</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>UNIVERSITY OF CAPE COAST<br>Dr. Charles Roland Haruna</h1>
+            <p>Professor of Computer science</p>
+            <div>
+                <a href="#research" class="hero-btn">Explore Research</a>
+                <a href="#contact" class="hero-btn outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <div class="section-title">
+                <h2>Courses</h2>
+                <p>Exploring innovative solutions for sustainable development and environmental conservation</p>
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-img" style="background-image: url('excel.jpg');">
+                    </div>
+                    <div class="research-content">
+                        <h3>Advanced excel</h3>
+                        <p>Master Excel to Advanced Level.</p>
+                        <a href="https://www.tutorialspoint.com/excel/index.htm" class="research-link">Learn more <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-img" style="background-image: url('sql.jpg');">
+                    </div>
+                    <div class="research-content">
+                        <h3>Advance SQL</h3>
+                        <p>Master SQL to Advance Level.
+                        </p>
+                        <a href="https://www.tutorialspoint.com/sql/index.htm" class="research-link">Learn more <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-img" style="background-image: url('pbi.jpg');">
+                    </div>
+                    <div class="research-content">
+                        <h3>Advance Power BI</h3>
+                        <p>Master Power BI to Advance Level.</p>
+                        <a href="https://www.tutorialspoint.com/sql/index.htm" class="research-link">Learn more <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Tables Section -->
+    <section>
+        <h3 class="page-title">Academic Information</h3>
+        <div class="tables-container">
+            <!-- Layout Table (invisible borders) -->
+            <div class="table-wrapper">
+                <h3>Office Hours Schedule</h3>
+                <table class="layout-table">
+                    <tr>
+                        <td>Monday</td>
+                        <td>10:00 AM - 12:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>2:00 PM - 4:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>By Appointment</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>10:00 AM - 12:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>studies Days</td>
+                    </tr>
+                </table>
+                <p>This table uses invisible borders for layout purposes</p>
+            </div>
+
+            <!-- Data Table (visible borders) -->
+            <div class="table-wrapper">
+                <h3>Current Courses</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Term</th>
+                            <th>Enrollment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS 101</td>
+                            <td>Introduction to Programming</td>
+                            <td>Fall 2023</td>
+                            <td>45 students</td>
+                        </tr>
+                        <tr>
+                            <td>CS 340</td>
+                            <td>Human-Computer Interaction</td>
+                            <td>Fall 2023</td>
+                            <td>32 students</td>
+                        </tr>
+                        <tr>
+                            <td>CS 510</td>
+                            <td>Computer Vision</td>
+                            <td>Fall 2025</td>
+                            <td>18 students</td>
+                        </tr>
+                        <tr>
+                            <td>CS 450</td>
+                            <td>Introduction To Computing</td>
+                            <td>Spring 2025</td>
+                            <td>28 students</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>This table uses visible borders for data presentation</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <div class="section-title">
+                <h1>Publications</h1>
+                <p>Peer-reviewed research articles, books, and conference proceedings</p>
+            </div>
+
+            <div class="pub-container">
+                <h3 class="pub-year">2025</h3>
+                <div class="pub-item">
+                    <div class="pub-title">Climate-resilient agriculture in semi-arid regions: A multi-scale approach
+                    </div>
+                    <div class="pub-authors">Charles.R, Johnson, A., & Chen, L.</div>
+                    <div class="pub-journal">Nature Sustainability, 6(4), 345-358</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-quote-right"></i> Cite</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">Urban green infrastructure and ecosystem services: A longitudinal study</div>
+                    <div class="pub-authors">Charles, J.</div>
+                    <div class="pub-journal">Database, 26(2), 511-525</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-quote-right"></i> Cite</a>
+                    </div>
+                </div>
+
+                <h3 class="pub-year">2022</h3>
+                <div class="pub-item">
+                    <div class="pub-title">Community-based conservation in biodiversity hotspots: Lessons from the field
+                    </div>
+                    <div class="pub-authors">Charles, J.</div>
+                    <div class="pub-journal">Database, 36(3), 721-733</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-quote-right"></i> Cite</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">Sustainable development goals and local implementation: A framework for
+                        action</div>
+                    <div class="pub-authors">Charles, J.</div>
+                    <div class="pub-journal">Database, 305, 114398</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-quote-right"></i> Cite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" style="background-color: #eef2f7;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Students</h2>
+                <p>Mentoring the next generation of researchers and environmental leaders</p>
+            </div>
+
+            <div class="student-container">
+                <div class="student-info">
+                    <h3>Opportunities for Students</h3>
+                    <p>I welcome inquiries from motivated students interested in pursuing graduate studies (MSc or PhD)
+                        in environmental science, sustainability, and conservation.</p>
+
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Research assistantships available</li>
+                        <li><i class="fas fa-check-circle"></i> Collaborative projects with industry partners</li>
+                        <li><i class="fas fa-check-circle"></i> Field research opportunities</li>
+                        <li><i class="fas fa-check-circle"></i> Interdisciplinary research environment</li>
+                        <li><i class="fas fa-check-circle"></i> Professional development support</li>
+                    </ul>
+
+                    <p style="margin-top: 30px;">Current students are engaged in research projects ranging from climate
+                        adaptation strategies to sustainable urban planning and biodiversity conservation.</p>
+                </div>
+
+                <div class="student-photos">
+                    <div class="student-photo"
+                        style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    </div>
+                    <div class="student-photo"
+                        style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    </div>
+                    <div class="student-photo"
+                        style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    </div>
+                    <div class="student-photo"
+                        style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    </div>
+                    <div class="student-photo"
+                        style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Get in touch for collaborations, student inquiries, or speaking engagements</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Office Location</h4>
+                            <p>computer Science Building<br>Room 45<br>University of Cape Coast</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Charles@university.edu<br>research.jane.smith@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+233(555) 123-4567<br>Office Hours: Mon-Wed 2-4 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Dr. Charles Roland Haruna
+            </div>
+
+            <div class="social-links">
+                <a href="https://x.com/Python_Dv/status/1942451328166289849"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/"><i class="fab fa-github"></i></a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 Dr. Charles Roland Haruna. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
